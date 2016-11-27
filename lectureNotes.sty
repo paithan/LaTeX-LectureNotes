@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  file: lectureNotes.sty
-%  author: Kyle G. Burke
+%  author: Kyle Burke <paithanq@gmail.com>
 %  description: This provides a set of commands for writing lecture notes to teach from.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -12,6 +12,9 @@
   
 %used to determine who this is being created for.
 \newtoggle{forStudents}
+
+%Used in place of \title{X} to set the title of the notes.  Usage: \lectureNotesTitle{CS 398 - Dogs and Frogs}
+\newcommand{\lectureNotesTitle}[1]{\title{#1 \\ \large{Lecture Notes - \iftoggle{forStudents}{Student}{Instructor}\ Version}}}
 
 %hwAssign
 %Used to state homework assignments if they belong in the notes.
