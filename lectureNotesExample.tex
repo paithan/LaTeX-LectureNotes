@@ -1,0 +1,44 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  file: lectureNotesExample.sty
+%  author: Kyle G. Burke
+%  description: An example using the commands from the lectureNotes.sty package.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[letter,12pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{lectureNotes}
+
+%sets whether this is For students or not.  one of these needs to be set!
+\togglefalse{forStudents} %use this option to leave the answers in for your own purposes
+%\toggletrue{forStudents} %use this to remove the answers to questions
+
+%opening
+\title{Lecture Notes: Fake Class}
+\author{Kyle Burke}
+
+\begin{document}
+
+\maketitle
+
+Welcome to the class!
+
+\lectureAction{Go over Syllabus.}
+
+\lecturePoint{Squares are really awesome objects.  I love them!}
+
+\question{Does anyone else love squares?}
+
+%notice that the answer comes first, since it's an optional argument.
+\question[Four.]{How many sides are in a square?}
+
+\lectureDefinition{Square}{A \emph{square} is a polygon with four right angles and four sides of equal length.}
+
+\lectureExample{Square}{The following points are corners of a square: $(0, 0)$, $(2, 0)$, $(0, 2)$, $(2, 2)$.}
+
+\lecturePoint{The following code could be used to create a Square object in Java:}
+
+\codeExample{int sideLength = 4;\\
+Square square = new Square(sideLength);}
+
+\hwAssign{Chapter 0, Section 0, Problems: 0, 3, and 5.}
+
+\end{document}
