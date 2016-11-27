@@ -1,0 +1,104 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  file: lectureNotes.sty
+%  author: Kyle G. Burke
+%  description: This provides a set of commands for writing lecture notes to teach from.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{ifthen} % provides conditionals
+\usepackage{etoolbox} % allows use of the toggle variables
+\usepackage{textcomp} % we use some special characters from this package.
+\usepackage{amssymb} % we use some special characters from this package.
+
+  
+%used to determine who this is being created for.
+\newtoggle{forStudents}
+
+%hwAssign
+%Used to state homework assignments if they belong in the notes.
+%Example: \hwAssign{3.3 problems 1, 4 and 7}
+\newcommand{\hwAssign}[1]{\ensuremath{\leftrightsquigarrow HOMEWORK:} {#1} \ensuremath{\leftrightsquigarrow}}
+
+%lecturePoint
+%Currently this does nothing.  I may want it to do something in the future.
+%Example: \lecturePoint{Why did Kyle write this command?}
+\newcommand{\lecturePoint}[1]{#1}
+
+%\lectureDefinition
+%Used to add a definition
+%Example: \lectureDefinition{monkey}{A \emph{monkey} is an awesome animal.
+\newcommand{\lectureDefinition}[2]{\textbf{Def:} \underline{\emph{#1}} #2}
+
+%question
+%Used for a question to ask the class.
+%Example: \question[Three]{How many sides does a triangle have?}
+%%TODO: get the Q and A to be at the top of their cells!  Then remove the phantomed suit symbols!
+\newcommand{\question}[2][]{
+\vspace{.2in}
+\framebox{
+ \begin{tabular}{p{1in} l}
+  \parbox[t]{\textwidth}{\textbf{\huge Q:}} & \parbox{5in}{#2} 
+   \ifstrempty{#1}
+    {%if #1 is empty
+    }
+    {%if #1 is not empty
+     \iftoggle{forStudents}
+      {%if forStudents is true  TODO: get this to print the A: and phantom out the other stuff.
+       \\  \phantom{$\spadesuit\diamondsuit\diamondsuit\diamondsuit\diamondsuit\diamondsuit\spadesuit$} & %TODO: remove the phantomed part once you get the Q and A to go to the top.
+       \\ \textbf{\huge A:} & \phantom{\parbox{4in}{#1}}
+      }
+      {%if forStudents is false
+       \\  \phantom{$\spadesuit\diamondsuit\diamondsuit\diamondsuit\diamondsuit\diamondsuit\spadesuit$} & %TODO: remove the phantomed part once you get the Q and A to go to the top.
+       \\ \textbf{\huge A:} & \parbox{4in}{#1} 
+      }
+    }
+ \end{tabular}
+}
+\vspace{.2in}}
+
+%answer
+%Sometimes you want an answer not right next to the question.  This is useful for that.
+%Example: \answer{A triangle has three sides.}
+\newcommand{\answer}[1]{
+\vspace{.2in}
+\framebox{
+\begin{tabular}{rl}
+  \textbf{\huge A:} & \parbox{4in}{#1} \cr
+      \end{tabular}}
+\vspace{.2in}}
+
+%lectureExample
+%An example given to the class.  Currently this is not very well formatted.
+%Example: \lectureExample{Right Triangle}{A triangle with sides of length 3, 4, and 5 is a right triangle.}
+\newcommand{\lectureExample}[2]{
+\begin{center}
+ \underline{\textbf{Example: #1}} \\
+ #2
+\end{center}
+\vspace{.2in}}
+
+%lectureAction
+%Something done in class that isn't just speaking.
+%Example: \lectureAction{Dance around like a chicken.}
+\newcommand{\lectureAction}[1]{\large{\textlangle \phantom{i} {#1} \textrangle}}
+
+%codeExample
+%An example of code presented in class.  I usually use this when showing examples using an interpreter such as the Python interactive mode.
+%Example: \codeExample{>>> x = 3\\>>> x\\ 3}
+\newcommand{\codeExample}[1]{\begin{center}\framebox{
+  \begin{minipage}{.9\linewidth}
+    \texttt{#1}
+  \end{minipage}}\end{center}}
+  
+%I don't use this anymore.  Consider it deprecated.
+\newcommand{\sectionCheck}[1]{\begin{center}(\textsection \textsf{#1})\end{center}}
+
+% Should I change this?
+% Page setup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \oddsidemargin  -.75in
+        \evensidemargin -.75in
+        \textwidth      7in
+        \headheight     0.0in
+        \topmargin      -.85in
+        \textheight 9in
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
