@@ -8,6 +8,7 @@
 \usepackage{etoolbox} % allows use of the toggle variables
 \usepackage{textcomp} % we use some special characters from this package.
 \usepackage{amssymb} % we use some special characters from this package.
+\usepackage[answerdelayed,lastexercise]{exercise} % used to create exercises
 
   
 %Used to determine who this is being created for.  
@@ -18,6 +19,32 @@
 
 %Used in place of \title{X} to set the title of the notes.  Usage: \lectureNotesTitle{CS 398 - Dogs and Frogs}
 \newcommand{\lectureNotesTitle}[1]{\title{#1 \\ \large{Lecture Notes - \iftoggle{forStudents}{Student}{Instructor}\ Version}}}
+
+%\beginExercisesPart
+%Creates a new subsubsection for exercises.
+%usage: \beginExercisesPart  
+\newcommand{\beginExercisesPart}{
+  \begin{flushleft}\textbf{Exercises for \arabic{section}.\arabic{subsection}}\end{flushleft}
+  \setcounter{subsubsection}{-1}
+}
+
+%usage: \exerciseVisibleAnswer{exerciseName/ID}{Question text/images}{Answer text/images}
+\newcommand{\exerciseVisibleAnswer}[3]{
+  \exerciseWithAnswer{#1}{(Answer in Appendix)\\#2}{#3}}
+
+%usage: \exerciseInstructorAnswer{exerciseName/ID}{Question text/images}{Answer text/images}
+\newcommand{\exerciseInstructorAnswer}[3]{
+  \exerciseWithAnswer{#1}{#2}{
+    \iftoggle{forStudents}
+      {Answer Not Provided}
+      {#3}}}
+      
+%Not to be used directly in document.
+\newcommand{\exerciseWithAnswer}[3]{\begin{Exercise}[
+  label=exercise:#1,
+  %number={\arabic{subsubsection}}
+  counter={subsubsection}
+]{#2}\end{Exercise}\begin{Answer}[ref=exercise:#1]{#3}\end{Answer}}
 
 %hwAssign
 %Used to state homework assignments if they belong in the notes.
