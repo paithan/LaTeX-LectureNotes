@@ -5,6 +5,7 @@ I have learned that it's better to LaTeX my lecture notes than to keep them hand
 * Not designed for students *taking* notes, but for instructors to prepare class.
 * Toggle between student version and instructor version by setting one flag.  Instructor Version hides answers to questions and solutions to some exercises.
 * All relevant packages are usable on Sage Math Cloud.
+* lectureNotesExamples.tex has examples of all of the functionality.
 
 
 At this point, there's only an .sty, not a .cls.
