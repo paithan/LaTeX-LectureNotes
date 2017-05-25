@@ -37,16 +37,16 @@
   \exerciseWithAnswer{#1}{#2}{
     \iftoggle{forStudents}
       {Answer Not Provided}
-      {Question: #2
-      
-      #3}}}
+      {#3}}}
       
 %Not to be used directly in document.
 \newcommand{\exerciseWithAnswer}[3]{\begin{Exercise}[
   label=exercise:#1,
   %number={\arabic{subsubsection}}
   counter={subsubsection}
-]{#2}\end{Exercise}\begin{Answer}[ref=exercise:#1]{#3}\end{Answer}}
+]{#2}\end{Exercise}\begin{Answer}[ref=exercise:#1]{Question: #2
+
+Answer: #3}\end{Answer}}
 
 %hwAssign
 %Used to state homework assignments if they belong in the notes.
