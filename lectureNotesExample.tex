@@ -3,9 +3,9 @@
 %  author: Kyle Burke <paithanq@gmail.com>
 %  description: An example using the commands from the lectureNotes.sty package.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[letter,12pt]{article}
+\documentclass{article}
 \usepackage[utf8x]{inputenc}
-\usepackage{amsmath, amssymb}
+\usepackage{amsmath}
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{lectureNotes}
@@ -14,9 +14,13 @@
 \togglefalse{forStudents} %use this option to leave the answers in for your own purposes
 %\toggletrue{forStudents} %use this to remove the answers to questions
 
+\textwidth 6.5in
+\oddsidemargin 0.0in
+\evensidemargin 0.0in
+
 %opening
 \lectureNotesTitle{CS 200: Faking It}
-\author{Kyle Burke}
+\lectureNotesAuthor{Kyle Burke}
 
 \begin{document}
 
