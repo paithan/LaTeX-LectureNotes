@@ -12,6 +12,7 @@
 \pagestyle{fancy}
 \cfoot{\copyright\ \the\year\ \Author}
 \usepackage[answerdelayed,lastexercise]{exercise} % used to create exercises (https://www.ctan.org/tex-archive/macros/latex/contrib/exercise)
+\usepackage[hidelinks]{hyperref}
 
 
 \newcounter{startingIndexMinusOne}
@@ -25,7 +26,7 @@
 
 %Used in place of \title{X} to set the title of the notes.  
 %Usage: \lectureNotesTitle{CS 398 - Dogs and Frogs}
-\newcommand{\lectureNotesTitle}[1]{\title{#1 \\ \large{Lecture Notes - \iftoggle{forStudents}{Student}{Instructor}\ Version\footnote{Created with lectureNotes.sty, which is available at: \url{http://turing.plymouth.edu/~kgb1013/lectureNotesLatexStyle.php} (or, GitHub: \url{https://github.com/paithan/LaTeX-LectureNotes}).  \iftoggle{forStudents}{Many or most of the answers to questions are hidden so that some of class will still be a challenge for students.}{This version may have some answers to lecture questions not available in the Student Version.  It's very likely that the author does not want this widely distributed!}}}}}
+\newcommand{\lectureNotesTitle}[1]{\title{#1 \\ \large{Lecture Notes - \iftoggle{forStudents}{Student}{Instructor}\ Version\footnote{Created with lectureNotes.sty, which is available at: \url{http://turing.plymouth.edu/\textasciitilde kgb1013/lectureNotesLatexStyle.php} (or, GitHub: \url{https://github.com/paithan/LaTeX-LectureNotes}).  \iftoggle{forStudents}{Many or most of the answers to questions are hidden so that some of class will still be a challenge for students.}{This version may have some answers to lecture questions not available in the Student Version.  It's very likely that the author does not want this widely distributed!}}}}}
 
 %Sets the \Author so that it can be used in the copyright notice.
 %Usage: \lectureNotesAuthor{Mojo Jojo}
