@@ -26,11 +26,35 @@
 
 %Used in place of \title{X} to set the title of the notes.  
 %Usage: \lectureNotesTitle{CS 398 - Dogs and Frogs}
-\newcommand{\lectureNotesTitle}[1]{\title{#1 \\ \large{Lecture Notes - \iftoggle{forStudents}{Student}{Instructor}\ Version\footnote{Created with lectureNotes.sty, which is available at: \url{http://turing.plymouth.edu/\textasciitilde kgb1013/lectureNotesLatexStyle.php} (or, GitHub: \url{https://github.com/paithan/LaTeX-LectureNotes}).  \iftoggle{forStudents}{Many or most of the answers to questions are hidden so that some of class will still be a challenge for students.}{This version may have some answers to lecture questions not available in the Student Version.  It's very likely that the author does not want this widely distributed!}}}}}
+\newcommand{\lectureNotesTitle}[1]{\title{#1 \\ \large{Lecture Notes - \iftoggle{forStudents}{Student}{Instructor}\ Version\footnote{Created with lectureNotes.sty, which is available at: \url{http://turing.plymouth.edu/\textasciitilde kgb1013/lectureNotesLatexStyle.php} (or, GitHub: \url{https://github.com/paithan/LaTeX-LectureNotes}).}}}}
 
 %Sets the \Author so that it can be used in the copyright notice.
 %Usage: \lectureNotesAuthor{Mojo Jojo}
 \newcommand{\lectureNotesAuthor}[1]{\author{#1}\let\Author\@author}
+
+
+%Creates a footer on all but the first page.  The footer includes: the page number, copyright for the author, and (if desired) an added license symbol (e.g. \ccby) that only occurs in the student version.
+%Requires the ccicons package in order to display any CC license symbols.
+%Usage: \footerWithLicenseOnStudentV{\ccby}
+\newcommand{\footerWithLicenseOnStudentV}[1]{
+    \cfoot{Page\ \thepage\  \copyright\ \the\year\ \Author\ \iftoggle{forStudents}{#1}{}}
+}
+
+
+%Creates either a license indication (for student versions) or a warning to not distribute (instructor versions).  I place mine at the top of my document, after the title, but before the table of contents.
+%Requires the doclicense package in order to display the license information.  E.g. (for CCBY):
+%\usepackage[
+%    type={CC},
+%    modifier={by},
+%    version={4.0},
+%]{doclicense}
+%usage: \warningOrLicense
+\newcommand{\warningOrLicense}[0]{
+    \iftoggle{forStudents}
+        {\doclicenseThis}
+        {\centering \fcolorbox{red}{white}{\parbox{\textwidth}{\centering {\huge \color{red} Warning!}\\
+         This document is intended for \emph{instructor use only}.  It contains answers to in-class questions and solutions to exercises that are not appropriate for students to have.  Please do not distribute these notes.}}}
+}
 
 
 %\beginExercisesPart
