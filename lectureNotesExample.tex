@@ -6,13 +6,21 @@
 \documentclass{article}
 \usepackage[utf8x]{inputenc}
 \usepackage{amsmath}
-\usepackage{url}
-\usepackage{hyperref}
 \usepackage{lectureNotes}
+\usepackage[hidelinks]{hyperref}
+\usepackage{ccicons}
+\usepackage[
+    type={CC},
+    modifier={by},
+    version={4.0},
+]{doclicense}
 
 %sets whether this is For students or not.  one of these needs to be set!
 \togglefalse{forStudents} %use this option to leave the answers in for your own purposes
 %\toggletrue{forStudents} %use this to remove the answers to questions
+
+
+\footerWithLicenseOnStudentV{\ccby}
 
 \textwidth 6.5in
 \oddsidemargin 0.0in
@@ -25,6 +33,8 @@
 \begin{document}
 
 \maketitle
+
+\warningOrLicense
 
 Welcome to the class!
 
