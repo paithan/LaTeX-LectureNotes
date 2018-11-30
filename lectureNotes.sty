@@ -9,6 +9,7 @@
 \usepackage{textcomp} % we use some special characters from this package.
 \usepackage{amssymb} % we use some special characters from this package.
 \usepackage{fancyhdr} %used to create the footer
+\usepackage{fancybox} %used for giveaway questions (\doublebox)
 \usepackage{xcolor} %used for the warning
 \pagestyle{fancy}
 \cfoot{Page\ \thepage\ \copyright\ \the\year\ \Author}
@@ -151,7 +152,7 @@
 %Usage: \giveawayq[Answer Text]{Question Text}
 \newcommand{\giveawayq}[2][]{
 \vspace{.5cm}\noindent
-\framebox{
+\doublebox{
  \begin{tabular}{p{1in} l}
   \parbox[t]{\textwidth}{\textbf{\huge Q:}} & \parbox{5in}{#2} 
    \ifstrempty{#1}
