@@ -195,9 +195,9 @@
 %codeExample
 %An example of code presented in class.  I usually use this when showing examples using an interpreter such as the Python interactive mode.
 %Example: \codeExample{>>> x = 3\\>>> x\\ 3}
-\newcommand{\codeExample}[1]{\begin{center}\framebox{
-  \begin{minipage}{.9\linewidth}
-    \texttt{#1}
+\newcommand{\codeExample}[2][\linewidth]{\noindent\begin{center}\framebox{
+  \begin{minipage}{#1}
+    \texttt{#2}
   \end{minipage}}\end{center}}
   
 %I don't use this anymore.  Consider it deprecated.
