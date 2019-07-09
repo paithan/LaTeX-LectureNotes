@@ -82,7 +82,7 @@
 \newcommand{\exerciseVisibleAnswer}[3]{
   \exerciseWithAnswer{#1}{#2
   
-  (Answer \refAnswer{exercise-#1} in Appendix)}{Question: 
+  (Answer \refAnswer{exercise:#1} in Appendix)}{Question: 
   
   #2
   
@@ -103,13 +103,14 @@
         
 %Not to be used directly in document.  Helper function for \exerciseInstructorAnswer and \exerciseVisibleAnswer.  
 \newcommand{\exerciseWithAnswer}[3]{\begin{Exercise}[
-  label=exercise-#1,
+  label=exercise:#1,
   %number={\arabic{subsubsection}}
   counter={subsubsection}
 ]{#2}\end{Exercise}
-\begin{Answer}[ref=exercise-#1]{#3}\end{Answer}}
+\begin{Answer}[ref=exercise:#1]{#3}\end{Answer}}
 
 
+%I have used this for debugging in the past.
 %\newcommand{\fauxercise}[3]{
 %    \begin{Exercise}[
 %        label=exercise-X,
