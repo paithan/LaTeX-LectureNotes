@@ -21,6 +21,9 @@
 % Must be imported AFTER hyperref
 \usepackage[answerdelayed,lastexercise]{exercise} 
 
+\newcounter{numExercises}
+\setcounter{numExercises}{0}
+
 
 \newcounter{startingIndexMinusOne}
 \setcounter{startingIndexMinusOne}{-1} %I almost always want to start my counters at 0.
@@ -66,6 +69,7 @@
 
 
 
+\newcommand{\printNumExercises}{\thenumExercises}
 
 %\beginExercisesPart
 %Creates a new subsubsection for exercises.
@@ -107,7 +111,9 @@
   %number={\arabic{subsubsection}}
   counter={subsubsection}
 ]{#2}\end{Exercise}
-\begin{Answer}[ref=exercise:#1]{#3}\end{Answer}}
+\begin{Answer}[ref=exercise:#1]{#3}\end{Answer}
+\stepcounter{numExercises}
+}
 
 
 %I have used this for debugging in the past.
