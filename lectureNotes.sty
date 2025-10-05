@@ -36,7 +36,7 @@
 
 %Used in place of \title{X} to set the title of the notes.  
 %Usage: \lectureNotesTitle{CS 398 - Dogs and Frogs}
-\newcommand{\lectureNotesTitle}[1]{\title{#1 \\ \large{Lecture Notes - \iftoggle{forStudents}{Student}{Instructor}\ Version\footnote{Created with lectureNotes.sty, which is available at: \url{http://turing.plymouth.edu/\textasciitilde kgb1013/lectureNotesLatexStyle.php} (or, GitHub: \url{https://github.com/paithan/LaTeX-LectureNotes}).}}}}
+\newcommand{\lectureNotesTitle}[1]{\title{#1 \\ \large{Lecture Notes - \iftoggle{forStudents}{Student}{Instructor}\ Version\footnote{Created with lectureNotes.sty, which is available at: \url{https://github.com/paithan/LaTeX-LectureNotes}.}}}}
 
 %Sets the \Author so that it can be used in the copyright notice.
 %Usage: \lectureNotesAuthor{Mojo Jojo}
@@ -79,7 +79,7 @@
   \setcounter{subsubsection}{\value{startingIndexMinusOne}}
 }
 
-
+\newcommand{\refExercise}[1]{\ref{exercise:#1}}
 
 
 %usage: \exerciseVisibleAnswer{exerciseName/ID}{Question text/images}{Answer text/images}
